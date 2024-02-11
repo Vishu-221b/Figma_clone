@@ -1,34 +1,16 @@
-"use client"
-import Image from 'next/image';
+"use client";
+import Image from "next/image";
 import { getShapeInfo } from "@/lib/utils";
 
-const LeftSidebar = ({ allShapes }: { allShapes: Array<any> }) => {
+const LeftSidebar = () => {
   return (
     <section className="text-5xl text-black #20272Fbg-black border min-w-[227px] ">
-              <h3 className="border text-white border-white0 px-5 py-4 text-xs uppercase">Layers</h3>
-              <div className="flex flex-col">
-          {allShapes?.map((shape: any) => {
-            const info = getShapeInfo(shape[1]?.type);
-
-            return (
-              <div
-                key={shape[1]?.objectId}
-                className="group my-1 flex items-center gap-2 px-5 py-2.5 hover:cursor-pointer hover:bg-primary-green hover:text-primary-black"
-              >
-                <Image
-                  src={info?.icon}
-                  alt='Layer'
-                  width={16}
-                  height={16}
-                  className='group-hover:invert'
-                />
-                <h3 className='text-sm font-semibold capitalize'>{info.name}</h3>
-              </div>
-            );
-          })}
-        </div>
+      <h3 className="border text-white border-white0 px-5 py-4 text-xs uppercase">
+        Layers
+      </h3>
+      <div className="flex flex-col"></div>
     </section>
-  )
-}
+  );
+};
 
-export default LeftSidebar
+export default LeftSidebar;
