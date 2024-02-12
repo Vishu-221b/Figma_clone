@@ -10,7 +10,7 @@ const workSans = Work_Sans({
  });
 
 export const metadata: Metadata = {
-  title: "Figma Clone",
+  title: "Figmabyvishu",
   description: "A design tool for teams who build products together.",
 };
 
