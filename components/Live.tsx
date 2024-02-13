@@ -29,6 +29,8 @@ const Live = () => {
     mode: CursorMode.Hidden,
   });
 
+  const broadcast = useBroadcastEvent();
+
   
 
   // set the reaction of the cursor
@@ -51,8 +53,32 @@ const Live = () => {
           },
         ])
       );
+      broadcast({
+        x: cursor.x,
+        y: cursor.y,
+        value: cursorState.reaction,
+      });
     }
-  }, 1);
+  }, 100);
+
+  /**
+   * useEventListener is used to listen to events broadcasted by other
+   * users.
+   *
+   * useEventListener: https://liveblocks.io/docs/api-reference/liveblocks-react#useEventListener
+   */
+  useEventListener((eventData) => {
+    const event = eventData.event as ReactionEvent;
+    setReactions((reactions) =>
+      reactions.concat([
+        {
+          point: { x: event.x, y: event.y },
+          value: event.value,
+          timestamp: Date.now(),
+        },
+      ])
+    );
+  });
   
   
 
