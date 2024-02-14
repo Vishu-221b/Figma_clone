@@ -12,6 +12,7 @@
     "@liveblocks/client": "^1.9.7",
     "@liveblocks/react": "^1.9.7",
     "@liveblocks/react-comments": "^1.9.7",
+    "@radix-ui/react-tooltip": "^1.0.7",
     "@types/fabric": "^5.3.7",
     "@types/uuid": "^9.0.8",
     "class-variance-authority": "^0.7.0",

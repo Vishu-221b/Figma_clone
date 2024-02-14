@@ -16,8 +16,12 @@ import {
   ReactionSelector,
 } from "./index";
 
+type Props = {
+  canvasRef: React.MutableRefObject<HTMLCanvasElement | null>;
+}
 
-const Live = () => {
+
+const Live = ({canvasRef}:Props) => {
   const others = useOthers();
   /* useOthers returns the list of other active users */
 
@@ -172,12 +176,15 @@ const Live = () => {
 
   return (
     <div
+    id="canvas"
       className="text-5xl text-black bg-#202020 border h-full w-full"
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
     >
+      <canvas ref={canvasRef} />
+
       {reactions.map((reaction) => (
         <FlyingReaction
           key={reaction.timestamp.toString()}
